@@ -33,12 +33,12 @@ This Framework contains the following implementations:
 28. Assert Element Text.
 29. Assert Element Atrribute with its value.
 
-Further I've embedded the Extext Spart Report, when run from TestRunner class by giving the Tag Name, it will generate the report.
-
-For the Failed Test Case, it will take the Snapshot and embedded that Snapshot in the Report also.
-
-Implemented the WebDriverManager, no need for .exe driver file.
-
-Supported PARALLEL EXECUTION, can run multiple scenarios Simultaneously.
-
-Implemented Page Object Model.
+  Further I've embedded the Extext Spart Report, when run from TestRunner class by giving the Tag Name, it will generate the report.
+  
+  For the Failed Test Case, it will take the Snapshot and embedded that Snapshot in the Report also.
+  
+  Implemented the WebDriverManager, no need for .exe driver file.
+  
+  Supported PARALLEL EXECUTION, can run multiple scenarios Simultaneously.
+  
+  Implemented Page Object Model.
