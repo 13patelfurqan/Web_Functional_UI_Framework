@@ -1,0 +1,185 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-09-16T10:39:36.502Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1772377000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepDefinitions.Hooks.PrintScenarioInfo(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 12,
+        "name": "Navigate to the Site and Test Login Functionality",
+        "description": "",
+        "id": "validation-of-the-functions-implemented-in-the-framework;navigate-to-the-site-and-test-login-functionality;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 307053900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepDefinitions.Hooks.AfterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 923875900,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I navigate to the URL \"https://www.saucedemo.com/v1/\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "https://www.saucedemo.com/v1/",
+                  "offset": 23
+                }
+              ],
+              "location": "stepDefinitions.stepDefinition.navigateToURL(java.lang.String)"
+            },
+            "after": [
+              {
+                "result": {
+                  "duration": 1000800,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "stepDefinitions.Hooks.AddScreenshot(io.cucumber.java.Scenario)"
+                }
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 177165600,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I enter text \"standard_user\" on element with id \"user-name\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "standard_user",
+                  "offset": 14
+                },
+                {
+                  "val": "id",
+                  "offset": 45
+                },
+                {
+                  "val": "user-name",
+                  "offset": 49
+                }
+              ],
+              "location": "stepDefinitions.stepDefinition.enterTextOnElement(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "after": [
+              {
+                "result": {
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "stepDefinitions.Hooks.AddScreenshot(io.cucumber.java.Scenario)"
+                }
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 103286400,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I enter text \"secret_sauce\" on element with id \"password\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "secret_sauce",
+                  "offset": 14
+                },
+                {
+                  "val": "id",
+                  "offset": 44
+                },
+                {
+                  "val": "password",
+                  "offset": 48
+                }
+              ],
+              "location": "stepDefinitions.stepDefinition.enterTextOnElement(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "after": [
+              {
+                "result": {
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "stepDefinitions.Hooks.AddScreenshot(io.cucumber.java.Scenario)"
+                }
+              }
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2078594700,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I click on element with id \"login-button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 24
+                },
+                {
+                  "val": "login-button",
+                  "offset": 28
+                }
+              ],
+              "location": "stepDefinitions.stepDefinition.performActionOnElement(java.lang.String,java.lang.String)"
+            },
+            "after": [
+              {
+                "result": {
+                  "duration": 998300,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "stepDefinitions.Hooks.AddScreenshot(io.cucumber.java.Scenario)"
+                }
+              }
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@SampleTC_01"
+          }
+        ]
+      }
+    ],
+    "name": "Validation of the Functions implemented in the Framework",
+    "description": "",
+    "id": "validation-of-the-functions-implemented-in-the-framework",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/TestCases.feature",
+    "tags": []
+  }
+]
