@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.helperPageObject;
@@ -12,8 +13,7 @@ public class stepDefinition {
     public helperPageObject helperPO;
     TestContextSetup testContextSetup;
 
-    public stepDefinition(TestContextSetup testContextSetup)
-    {
+    public stepDefinition(TestContextSetup testContextSetup) {
         this.testContextSetup = testContextSetup;
         this.helperPO = testContextSetup.pageObjectManager.getHelper();
     }
@@ -170,8 +170,15 @@ public class stepDefinition {
         helperPO.assertElementAttribute(locatorType, locatorValue, attributeName, expectedValue);
     }
 
+    @And("^I wait for (\\d+) seconds$")
+    public void iWaitForSeconds(int seconds) {
+        helperPO.sleep(seconds);
+    }
 
-
+    @When("I refresh the page until element with {string} {string} is visible")
+    public void iRefreshPageUntilElementVisible(String locatorType, String locatorValue) {
+        helperPO.refreshUntilElementVisible(locatorType, locatorValue);
+    }
 
 
 }

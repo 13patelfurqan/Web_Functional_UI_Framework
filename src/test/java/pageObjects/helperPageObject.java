@@ -24,38 +24,8 @@ public class helperPageObject {
 
     // Method to click on the specific element
     public void performActionOnElement(String locatorType, String locatorValue) {
-        By by;
-        switch (locatorType.toLowerCase()) {
-            case "id":
-                by = By.id(locatorValue);
-                break;
-            case "name":
-                by = By.name(locatorValue);
-                break;
-            case "xpath":
-                by = By.xpath(locatorValue);
-                break;
-            case "css":
-                by = By.cssSelector(locatorValue);
-                break;
-            case "linktext":
-                by = By.linkText(locatorValue);
-                break;
-            case "partiallinktext":
-                by = By.partialLinkText(locatorValue);
-                break;
-            case "classname":
-                by = By.className(locatorValue);
-                break;
-            case "tagname":
-                by = By.tagName(locatorValue);
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid locator type: " + locatorType);
-        }
-
-        driver.findElement(by).click();
-
+        WebElement element = locateElement(locatorType, locatorValue);
+        element.click();
     }
 
     // Method to send text to the specific element
@@ -229,6 +199,7 @@ public class helperPageObject {
         driver.navigate().forward();
     }
 
+    // Method to press different keys
     public void pressKey(String keyName) {
         Actions actions = new Actions(driver);
 
@@ -271,6 +242,7 @@ public class helperPageObject {
         }
     }
 
+    // Method to verify the Page Title
     public void assertPageTitle(String expectedTitle) {
         wait.until(ExpectedConditions.titleIs(expectedTitle));
         String actualTitle = driver.getTitle();
@@ -281,6 +253,7 @@ public class helperPageObject {
         }
     }
 
+    // Method to drag and drop the element
     public void dragAndDropElement(String sourceLocatorType, String sourceLocatorValue, String targetLocatorType, String targetLocatorValue) {
         Actions actions = new Actions(driver);
 
@@ -292,6 +265,7 @@ public class helperPageObject {
         actions.dragAndDrop(sourceElement, targetElement).build().perform();
     }
 
+    // Method to select check box
     public void selectCheckbox(String locatorType, String locatorValue) {
         WebElement checkbox = locateElement(locatorType, locatorValue);
 
@@ -301,6 +275,7 @@ public class helperPageObject {
         }
     }
 
+    // Method to select radio button
     public void selectRadioButton(String locatorType, String locatorValue) {
         WebElement radioButton = locateElement(locatorType, locatorValue);
 
@@ -310,6 +285,7 @@ public class helperPageObject {
         }
     }
 
+    // Method to verify the element visibility
     public boolean isElementVisible(String locatorType, String locatorValue) {
         WebElement element = locateElement(locatorType, locatorValue);
 
@@ -323,37 +299,43 @@ public class helperPageObject {
         }
     }
 
+    // Method to clear text from the field
     public void clearTextFromElement(String locatorType, String locatorValue) {
         WebElement element = locateElement(locatorType, locatorValue);
         element.clear();
     }
 
+    // Method to switch (enter) into iframe element
     public void switchToFrame(String locatorType, String locatorValue) {
         WebElement frameElement = locateElement(locatorType, locatorValue);
         driver.switchTo().frame(frameElement);
     }
 
+    // Method to switch out from iframe element
     public void switchToDefaultContent() {
         driver.switchTo().defaultContent();
     }
 
+    // Method to accept the alert box
     public void acceptAlert() {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
 
+    // Method to dismiss the alert box
     public void dismissAlert() {
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
     }
 
+    // Method to verify any text on the Page by using Page Source
     public void assertPageSourceContains(String expectedText) {
         String pageSource = driver.getPageSource();
         Assert.assertTrue(pageSource.contains(expectedText), "Expected text '" + expectedText + "' is not present on the page.");
         System.out.println("The Expected Text to be match is: " + expectedText);
     }
 
-
+    // Method to verify the text of an element
     public void assertElementText(String expectedText, String locatorType, String locatorValue) {
         WebElement element = locateElement(locatorType, locatorValue);
         String actualText = element.getText().trim(); // Trim leading and trailing whitespace
@@ -366,6 +348,7 @@ public class helperPageObject {
         }
     }
 
+    // Method to verify the value of element attribute
     public void assertElementAttribute(String locatorType, String locatorValue, String attributeName, String expectedValue) {
         WebElement element = locateElement(locatorType, locatorValue);
         String actualValue = element.getAttribute(attributeName);
@@ -378,17 +361,36 @@ public class helperPageObject {
         }
     }
 
+    // Method to add a sleep/wait
+    public void sleep(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000); // Convert seconds to milliseconds
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
 
+    // Method to refresh the page till the desired element visible on the page
+    public void refreshUntilElementVisible(String locatorType, String locatorValue) {
+        while (true) {
+            try {
+                WebElement element = locateElement(locatorType, locatorValue);
+                if (element.isDisplayed()) {
+                    break; // Element found, exit the loop.
+                }
+            } catch (Exception e) {
+                // Element not found, continue refreshing.
+            }
 
-
-
-
-
-
-
-
-
-
+            // Sleep for the specified delay before refreshing.
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            driver.navigate().refresh();
+        }
+    }
 
 
 }

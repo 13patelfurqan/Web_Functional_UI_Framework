@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 import java.io.*;
 
-@CucumberOptions(features = "src/test/java/features", glue = "stepDefinitions", monochrome = true, tags = "@SampleTC_01",
+@CucumberOptions(features = "src/test/java/features", glue = "stepDefinitions", monochrome = true, tags = "@LoginDemoScenario",
         plugin = {"html:target/cucumber.html", "json:target/cucumber.json",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "rerun:target/failed_scenarios.txt"})

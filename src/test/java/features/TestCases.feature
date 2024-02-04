@@ -1,9 +1,24 @@
 Feature: Validation of the Functions implemented in the Framework
 
+  @LoginDemoScenario
+  Scenario Outline: Verify the Login functionality
+    Given I navigate to the URL "https://www.saucedemo.com/v1/"
+    When I enter text "<LoginUsername>" on element with xpath "//input[@id='user-name']"
+    Then I enter text "<LoginPassword>" on element with xpath "//input[@id='password']"
+    And I click on element with id "login-button"
+    Then the URL should be "https://www.saucedemo.co/v1/inventory.html"
+
+    Examples:
+      | LoginUsername | LoginPassword |
+      | standard_user | secret_sauce  |
+
+
   @SampleTC_01
   Scenario Outline: Navigate to the Site and Test Login Functionality
     Given I navigate to the URL "https://www.saucedemo.com/v1/"
+    And I wait for 1 seconds
     When I enter text "<username>" on element with id "user-name"
+#    When I refresh the page until element with "id" "passwordd" is visible
     Then I enter text "<password>" on element with id "password"
     And I click on element with id "login-button"
 
@@ -91,7 +106,7 @@ Feature: Validation of the Functions implemented in the Framework
     When I enter text "<username>" on element with id "user-name"
     Then I enter text "<password>" on element with id "password"
     And I click on element with id "login-button"
-    When I select the option with value "za" from the dropdown with "classname" "product_sort_container"
+    When I select the option with value "lohi" from the dropdown with "classname" "product_sort_container"
 
 
     Examples:

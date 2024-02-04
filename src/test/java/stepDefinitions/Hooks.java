@@ -33,10 +33,10 @@ public class Hooks {
 		System.out.println("/******************************************************************************************************/");
 	}
 
-	@After
-	public void AfterScenario() throws IOException {
-		driver.quit();
-	}
+//	@After
+//	public void AfterScenario() throws IOException {
+//		driver.quit();
+//	}
 
 	@AfterStep
 	public void AddScreenshot(Scenario scenario) throws IOException {
